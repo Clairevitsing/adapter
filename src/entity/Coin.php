@@ -8,16 +8,12 @@ class Coin implements RandomGeneratorInterface
 {
     public function toss() : bool
     {
-        return (bool) $this->generateRandom();
+        return (bool) rand(0, 1);
     }
 
     public function generateRandom() : int
     {
-        return rand(0,1);
+        return $this -> toss()?1:0;
     }
 
-    public function roll(): int
-    {
-        return $this->generateRandom();
-    }
 }

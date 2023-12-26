@@ -1,6 +1,5 @@
 <?php
 
-// On inclut les fichiers contenant les définitions des classes
 require_once 'vendor/autoload.php';
 require_once 'src\Entity\Mj.php';
 require_once 'src\Entity\Deck.php';
@@ -22,7 +21,7 @@ $dice = new Dice([1, 2, 3,4,5,6]);
 $deckAdapter = new \src\entity\DeckRandomGeneratorAdapter(4,13);
 $mj = new Mj($coin, $deckAdapter, $dice);
 
-$critRate = 8;
+$critRate = 4;
 
 $result = $mj->rollForCrit($critRate);
 

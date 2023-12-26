@@ -17,7 +17,6 @@ class DeckRandomGeneratorAdapter implements RandomGeneratorInterface
     public function generateRandom() : int
     {
         $card = $this->deck->flip();
-        echo "Generated value: $card\n";
-        return (int) $card;
+        return (int) $card['value'];
     }
 }
