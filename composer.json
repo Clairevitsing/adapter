@@ -1,0 +1,15 @@
+{
+    "name": "vitsi/adapter",
+    "autoload": {
+        "psr-4": {
+            "Vitsi\\Adapter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "claire",
+            "email": "115070408+Clairevitsing@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
