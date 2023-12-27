@@ -1,42 +1,45 @@
 <?php
 
-require_once 'vendor/autoload.php';
+require_once 'src/controller/MjController.php';
 require_once 'src\Entity\Mj.php';
-require_once 'src\Entity\Deck.php';
-require_once 'src\Entity\Coin.php';
-require_once 'src\Entity\Dice.php';
-require_once 'src\Entity\DeckRandomGeneratorAdapter.php';
-require_once 'src\Entity\RandomGeneratorInterface.php';
+?>
 
-use Src\Entity\Coin;
-use Src\Entity\Deck;
-use Src\Entity\Dice;
-use Src\Entity\Mj;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Game Result</title>
+</head>
+<body>
+
+    <div class="result-container">
+
+        <?php
+
+        //var_dump($result);
+
+        if (is_array($result)) {
+            echo "<p>The game master used an item <strong>{$result['object']}</strong> and achieved a score of <strong>{$result['value']}</strong>.</p>";
+
+            if ($result['success']) {
+                echo "<p class='success'>The score is above the criteria, it's a success!</p>";
+            } else {
+                echo "<p class='failure'>The score is below the criteria, it's a failure!</p>";
+            }
+        } else {
+            echo "<p class='unexpected'>Unexpected result type: " . gettype($result) . ".</p>";
+            echo "<pre>";
+            var_dump($result);
+            echo "</pre>";
+        }
+        ?>
+
+    </div>
+
+</body>
+</html>
 
 
-$coin = new Coin();
-$deck = new Deck(4,13);
-$dice = new Dice([1, 2, 3,4,5,6]);
-
-$deckAdapter = new \src\entity\DeckRandomGeneratorAdapter(4,13);
-$mj = new Mj($coin, $deckAdapter, $dice);
-
-$critRate = 4;
-
-$result = $mj->rollForCrit($critRate);
-
-var_dump($result);
-
-if (is_array($result)) {
-    echo "The game master used an item " . $result['object'] . " and achieved a score of " . $result['value'] . "\n";
-
-    if ($result['success']) {
-        echo "The score is above the criteria, it's a success!\n";
-    } else {
-        echo "The score is below the criteria, it's a failure!\n";
-    }
-} else {
-    echo "Unexpected result type: " . gettype($result) . "\n";
-    var_dump($result);
-}
 
