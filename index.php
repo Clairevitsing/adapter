@@ -16,6 +16,8 @@ require_once 'src\Entity\Mj.php';
 
     <div class="result-container">
 
+        <h1 style="text-align:center;">Game Result</h1>
+
         <?php
 
         //var_dump($result);
