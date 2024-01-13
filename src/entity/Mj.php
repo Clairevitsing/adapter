@@ -8,11 +8,9 @@ class Mj
 {
     protected array $randomObjects;
 
-    public function __construct(RandomGeneratorInterface $random1,
-                                RandomGeneratorInterface $random2,
-                                RandomGeneratorInterface $random3)
+    public function __construct(RandomGeneratorInterface ...$randomObjects)
     {
-        $this->randomObjects = [$random1, $random2, $random3];
+        $this->randomObjects = $randomObjects;
     }
 
     public function rollForCrit($critRate): array

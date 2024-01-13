@@ -15,10 +15,13 @@ class Deck
     }
     public function flip() : array
     {
-            return [
-                'suit' => ['spades', 'hearts', 'diamonds', 'clubs'][array_rand(['spades', 'hearts', 'diamonds', 'clubs'])],
-                'value' => rand(1, $this->values),
-            ];
+        $suits = ['spades', 'hearts', 'diamonds', 'clubs'];
+        $randomSuit = $suits[array_rand($suits)];
+
+        return [
+            'suit' => $randomSuit,
+            'value' => rand(1, $this->values),
+        ];
     }
 
 

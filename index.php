@@ -23,7 +23,7 @@ require_once 'src/controller/MjController.php';
         //var_dump($result);
 
         if (is_array($result)) {
-            echo "<p>The game master used an item <strong>{$result['object']}</strong> and achieved a score of <strong>{$result['value']}</strong>.</p>";
+            echo "<p>The game master used the object: <strong>{$result['object']}</strong> and achieved a value: <strong>{$result['value']}</strong>.</p>";
 
             if ($result['success']) {
                 echo "<p class='success'>The score is above the criteria, it's a success!</p>";
@@ -42,6 +42,3 @@ require_once 'src/controller/MjController.php';
 
 </body>
 </html>
-
-
-
