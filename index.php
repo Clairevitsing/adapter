@@ -1,7 +1,7 @@
 <?php
 
 require_once 'src/controller/MjController.php';
-require_once 'src\Entity\Mj.php';
+
 ?>
 
 <!DOCTYPE html>
