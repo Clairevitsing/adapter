@@ -15,7 +15,7 @@ class Mj
         $this->randomObjects = [$random1, $random2, $random3];
     }
 
-    public function rollForCrit(int $critRate): array
+    public function rollForCrit($critRate): array
     {
         $randomObject = $this->getRandomObject();
         $randomValue = $randomObject->generateRandom();
